@@ -1,7 +1,12 @@
 <h1><%= @user.username %>'s Notebook</h1>
 
 <% if user_signed_in? %>
-<a class="btn btn-primary" href="#" role="button">Follow this User</a>
+<% @check = Following.find_by(follower_id: current_user.id, followee_id: @user) %>
+  <% if @check.nil? %>
+    <%= link_to 'Follow this User', user_followings_path(user_username: @user.username), method: :post, class: 'btn btn-primary' %>
+  <% else %>
+    <%= link_to 'Unfollow this User', user_following_path(user_username: @user.username, id: @check.id), method: :delete, class: 'btn btn-primary' %>
+  <% end %>
 <% end %>
 
 <h2>Statistics</h2>
