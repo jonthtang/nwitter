@@ -5,6 +5,7 @@ class User < ApplicationRecord
         #  :recoverable, :rememberable, :trackable
 
   has_many :notes, dependent: :destroy
+  has_many :likes
   validates :username, presence: true, uniqueness: true, :case_sensitive => false
   validates :email, presence: true
 

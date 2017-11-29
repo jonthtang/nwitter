@@ -23,6 +23,13 @@
         </p>
         </div>
       </div>
+      <% if user_signed_in? %>
+        <% if Like.find_by(user_id: current_user.id, note_id: note.id).nil? %>
+          <%= link_to 'Like', user_likes_path(user_username: @user.username, id: note), method: :post, class: 'btn btn-outline-danger' %>
+        <% else %>
+          <%= link_to 'Unlike', user_like_path(user_username: @user.username, id: note), method: :delete, class: 'btn btn-outline-danger' %>
+        <% end %>
+      <% end %>
     </div>
     </div>
   <% end %>

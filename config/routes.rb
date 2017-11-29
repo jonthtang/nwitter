@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :users, only:[:index, :show], param: :username do
-    resources :notes, except: [:new, :edit]
+    resources :notes, except: [:new, :edit] do
+      member do
+        resources :likes, only:[:create, :destroy]
+      end
+    end
   end
 
   get '/home', to: 'notes#home' #current user's dashboard, authenticated area
