@@ -6,12 +6,14 @@ class LikesController < ApplicationController
   def create
     @like = @note.likes.build(user: current_user)
     @like.save
+    UserMailer.like_email(@user).deliver_now
     redirect_to user_path(username: @user.username)
   end
 
   def destroy
     @like = Like.find_by(user_id: current_user.id, note_id: @note.id)
     @like.destroy
+    UserMailer.unlike_email(@user).deliver_now
     redirect_to user_path(username: @user.username)
   end
 

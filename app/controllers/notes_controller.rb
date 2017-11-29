@@ -33,6 +33,8 @@ class NotesController < ApplicationController
   end
 
   def home
+    @followedusers = Following.where(follower_id: current_user.id)
+
   end
 
 private

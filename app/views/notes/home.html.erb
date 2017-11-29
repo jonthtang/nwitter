@@ -6,3 +6,23 @@
 <p>Number of notes:</p>
 
 <h2>Who you are following:</h2>
+<div class="card-deck">
+  <% @followedusers.each do |array| %>
+    <% user = User.find_by(id: array.followee_id) %>
+    <div class="card-contain">
+    <div class="card">
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title text-center"><%= link_to user.username, user_path(username: user.username) %></h4>
+        <div class="scroller">
+        <p class="card-text">
+          <% user.notes.each do |note| %>
+          <li class="list-group-item"><%= note.title %></li>
+          <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  <% end %>
+</div>
