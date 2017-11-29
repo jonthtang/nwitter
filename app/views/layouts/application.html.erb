@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+    <%= render partial: 'notes/navbar' %>
+    <% elsif action_name == 'index' || action_name == 'show'%>
+    <%= render partial: 'users/anonnavbar' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

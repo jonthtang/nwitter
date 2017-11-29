@@ -1,1 +1,25 @@
-<h1>Note#Index</h1>
+<h1>Hi <%=current_user.username%>, write a new note! </h1>
+  <%= simple_form_for @note, url: user_notes_path(current_user), method: :post do |f| %>
+    <%= f.input :title, label: "Enter a title", as: :text %>
+    <%= f.input :body, label: "Share your thoughts", as: :text, error: "Cannot be empty!" %>
+    <%= f.button :submit, 'Create Note' %>
+  <% end %>
+
+  <h2>Current Notes</h2>
+  <div class="card-deck">
+    <% current_user.notes.each do |note| %>
+      <div class="card-contain">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title text-center"><%= best_in_place [current_user, note], :title %></h4>
+          <div class="scroller">
+          <p class="card-text">
+            <%= best_in_place [current_user, note], :body %>
+          </p>
+          </div>
+        </div>
+        <%= link_to 'Delete Note', user_note_path(id: note), method: :delete, class: 'btn btn-outline-danger' %>
+      </div>
+      </div>
+    <% end %>
+  </div>
