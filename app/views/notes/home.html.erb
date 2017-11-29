@@ -11,7 +11,7 @@
     <% user = User.find_by(id: array.followee_id) %>
     <div class="card-contain">
     <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
+      <%= image_tag("http://api.adorable.io/avatar/300/#{user.username}") %>
       <div class="card-body">
         <h4 class="card-title text-center"><%= link_to user.username, user_path(username: user.username) %></h4>
         <div class="scroller">
