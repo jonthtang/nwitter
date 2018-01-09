@@ -9,14 +9,14 @@ Ruby Version 2.4.1
 Rails 5.1.4
 
 ## Gems
-Simple_form
-Devise 4.0
-Bootstrap 4.0 Beta
-Rubocop
-RSpec
-Shoulda-matchers
-Factory Bot
-Faker
+- Simple_form
+- Devise 4.0
+- Bootstrap 4.0 Beta
+- Rubocop
+- RSpec
+- Shoulda-matchers
+- Factory Bot
+- Faker
 
 ## Installation
 Follow this guide for installation of the program.
