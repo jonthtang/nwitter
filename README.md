@@ -1,24 +1,59 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Introduction
+A note taking and sharing app written in 12 hours for the final assessment of my bootcamp!
 
-* Ruby version
+## System Specs
+Ruby Version 2.4.1
+Rails 5.1.4
 
-* System dependencies
+## Gems
+Simple_form
+Devise 4.0
+Bootstrap 4.0 Beta
+Rubocop
+RSpec
+Shoulda-matchers
+Factory Bot
+Faker
 
-* Configuration
+## Installation
+Follow this guide for installation of the program.
+1. Using your terminal, clone the repository to your computer.
+```
+git clone https://github.com/jonthtang/my_ac_final_assessment.git
+```
 
-* Database creation
+2. Install dependencies
+```
+bundle install
+```
 
-* Database initialization
+3. Install specific gems
+```
+Follow the instructions for gem installation for the following gems.
+- Simple_form - https://github.com/plataformatec/simple_form
+- Devise 4.0 - https://github.com/plataformatec/devise
+- Bootstrap 4.0 Beta - https://github.com/twbs/bootstrap
+- Rubocop - https://github.com/github/rubocop-github
+- RSpec - https://github.com/rspec/rspec-rails
+- Shoulda-matchers - https://github.com/thoughtbot/shoulda-matchers
+- Factory Bot - https://github.com/thoughtbot/factory_bot_rails
+- Faker - https://github.com/stympy/faker
+```
 
-* How to run the test suite
+4. Create the database
+```
+rake db:create db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## App Deployment
+Run
+```
+rails s
+```
+In your browser, type
+```
+localhost:3000/
+```

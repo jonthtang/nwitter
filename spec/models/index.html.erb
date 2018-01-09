@@ -1,14 +1,9 @@
-<h1>Welcome back, <%= current_user.username %> </h1>
+<h1>Current Users</h1>
 
-<h2>Statistics</h2>
-<p>Following:</p>
-<p>Followed by:</p>
-<p>Number of notes:</p>
+<br/>
 
-<h2>Who you are following:</h2>
 <div class="card-deck">
-  <% @followedusers.each do |array| %>
-    <% user = User.find_by(id: array.followee_id) %>
+  <% @users.each do |user| %>
     <div class="card-contain">
     <div class="card">
       <%= image_tag("http://api.adorable.io/avatar/300/#{user.username}") %>
@@ -18,8 +13,7 @@
         <p class="card-text">
           <% user.notes.each do |note| %>
           <li class="list-group-item"><%= note.title %></li>
-          <% end %>
-          </p>
+          <% end %></p>
         </div>
       </div>
     </div>

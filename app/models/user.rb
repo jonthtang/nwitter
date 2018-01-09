@@ -23,7 +23,7 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_users
   has_many :notes, dependent: :destroy
   has_many :likes
-  validates :username, presence: true, uniqueness: true, :case_sensitive => false
+  validates :username, presence: true, uniqueness:  { case_sensitive: false }
   validates :email, presence: true
 
 end
