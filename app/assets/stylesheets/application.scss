@@ -63,10 +63,44 @@ h1.landing {
   margin: 0px 20%;
 }
 
-body.landing {
+body {
   background-image: url(landing.jpg);
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+h1.login {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #FFFFFF;
+}
+
+.panel.login {
+  background-color: #FFFFFF;
+  border: 2px solid black;
+  border-radius: 50px;
+  margin: 10%;
+  padding: 2%;
+}
+
+h2.login {
+  text-align: center;
+  margin: 35px 20px;
+}
+
+.form-inputs.login {
+  margin: 40px 20px;
+}
+
+.form-actions.login {
+  text-align: center;
+}
+
+.simple_form label {
+  float: left;
+  width: 100px;
+  text-align: left;
+  margin: 2px 10px;
 }

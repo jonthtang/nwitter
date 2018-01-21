@@ -47,7 +47,7 @@ Follow the instructions for gem installation for the following gems.
 
 4. Create the database
 ```
-rake db:create db:migrate
+rake db:create db:migrate db:seed
 ```
 
 ## App Deployment
