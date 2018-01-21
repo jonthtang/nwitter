@@ -12,4 +12,8 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
   end
 
+  def landing
+    @notes = Note.last(3)
+  end
+
 end

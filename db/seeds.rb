@@ -14,7 +14,7 @@
 end
 
 30.times do
-  user_id = rand(10..13)
+  user_id = rand(1..7)
   title = Faker::Pokemon.name
   body = Faker::HarryPotter.quote
   Note.create!(title: title, body: body, user_id: user_id)

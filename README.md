@@ -2,7 +2,9 @@
 
 
 ## Introduction
-A note taking and sharing app written in 12 hours for the final assessment of my bootcamp!
+A note taking and sharing app orginally written in 12 hours for the final assessment of my bootcamp!
+
+Subsequent additions as and when I learn something new!
 
 ## System Specs
 Ruby Version 2.4.1
@@ -22,7 +24,7 @@ Rails 5.1.4
 Follow this guide for installation of the program.
 1. Using your terminal, clone the repository to your computer.
 ```
-git clone https://github.com/jonthtang/my_ac_final_assessment.git
+git clone https://github.com/jonthtang/nwitter.git
 ```
 
 2. Install dependencies

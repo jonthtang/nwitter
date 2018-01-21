@@ -1,4 +1,4 @@
-<h1>Current Users</h1>
+<h1>Browse Users</h1>
 
 <br/>
 
@@ -6,18 +6,20 @@
 <div class="card-deck">
   <% @users.each do |user| %>
     <div class="card-contain">
-    <div class="card">
-      <%= image_tag("http://api.adorable.io/avatar/300/#{user.username}") %>
-      <div class="card-body">
-        <h4 class="card-title text-center"><%= link_to user.username, user_path(username: user.username) %></h4>
-        <div class="scroller">
-        <p class="card-text">
-          <% user.notes.each do |note| %>
-          <li class="list-group-item"><%= note.title %></li>
-          <% end %></p>
-        </div>
+      <div class="card">
+        <% unless user == current_user %>
+          <%= image_tag("http://api.adorable.io/avatar/300/#{user.username}") %>
+          <div class="card-body">
+            <h4 class="card-title text-center"><%= link_to user.username, user_path(username: user.username) %></h4>
+            <div class="scroller">
+            <p class="card-text">
+              <% user.notes.each do |note| %>
+              <li class="list-group-item"><%= note.title %></li>
+              <% end %></p>
+            </div>
+          </div>
+        <% end %>
       </div>
-    </div>
     </div>
   <% end %>
 </div>

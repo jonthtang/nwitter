@@ -1,0 +1,76 @@
+<body class="landing">
+  <div class="row landing">
+
+    <div class="col 6 offset-1">
+      <h1 class ="landing">Latest Notes</h2>
+      <div id="text-carousel" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="row">
+          <div class="col-10 offset-1">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="carousel-content">
+                  <div>
+                    <div class="card">
+                      <h5 class="card-header"><%= @notes[-1].title %></h5>
+                      <div class="card-body">
+                        <h5 class="card-title"><%= @notes[-1].body %></h5>
+                        <p class="card-text">By <%= @notes[-1].user.username %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="carousel-content">
+                  <div>
+                    <div class="card">
+                      <h5 class="card-header"><%= @notes[-2].title %></h5>
+                      <div class="card-body">
+                        <h5 class="card-title"><%= @notes[-2].body %></h5>
+                        <p class="card-text">By <%= @notes[-2].user.username %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="carousel-content">
+                  <div>
+                    <div class="card">
+                      <h5 class="card-header"><%= @notes[-3].title %></h5>
+                      <div class="card-body">
+                        <h5 class="card-title"><%= @notes[-3].body %></h5>
+                        <p class="card-text">By <%= @notes[-3].user.username %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- Controls -->
+        <a class="carousel-control-prev" href="#text-carousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+       <a class="carousel-control-next" href="#text-carousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+          <span class="sr-only">Next</span>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="col-5">
+      <h1 class = "landing"></br>An online notesharing community.
+        </br></br>
+        Register an account and join us now! </h1>
+    </div>
+
+  </div>
+</body>

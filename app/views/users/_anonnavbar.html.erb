@@ -5,6 +5,9 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <a class="navbar-brand" href="#">Nwitter</a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <%= link_to 'Explore Users', users_path, class: 'nav-link' %>
+      </li>
     </ul>
     <%= link_to 'Register', new_user_registration_path, class: 'btn btn-outline-dark' %>
     <%= link_to 'Sign In', new_user_session_path,

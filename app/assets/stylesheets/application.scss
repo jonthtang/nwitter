@@ -40,3 +40,33 @@
      height: 150px;
      overflow-y:scroll;
  }
+
+.carousel-content {
+    color:green;
+    display:fixed;
+    align-items:center;
+}
+
+#text-carousel {
+  width: 100%;
+  height: auto;
+  padding: 50px;
+}
+
+.landing.row {
+  margin-top: 3%;
+}
+
+h1.landing {
+  text-align: center;
+  color: white;
+  margin: 0px 20%;
+}
+
+body.landing {
+  background-image: url(landing.jpg);
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

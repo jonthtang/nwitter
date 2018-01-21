@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   get '/home', to: 'notes#home' #current user's dashboard, authenticated area
-  root to: 'users#index'
+  get '/landing', to: 'users#landing'
+  root to: 'users#landing'
 
 end

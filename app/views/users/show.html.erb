@@ -12,9 +12,9 @@
 
 
 <h2>Statistics</h2>
-<p>Following:</p>
-<p>Followed by:</p>
-<p>Number of notes:</p>
+<p>Following: <%= @user.followees.count %></p>
+<p>Followed by: <%= @user.followers.count %></p>
+<p>Number of notes: <%= @user.notes.count %></p>
 
 <br/>
 <h2>Current Notes</h2>
@@ -32,9 +32,9 @@
       </div>
       <% if user_signed_in? %>
         <% if Like.find_by(user_id: current_user.id, note_id: note.id).nil? %>
-          <%= link_to 'Like', user_likes_path(user_username: @user.username, id: note), method: :post, class: 'btn btn-outline-danger' %>
+          <%= link_to 'Follow Note', user_likes_path(user_username: @user.username, id: note), method: :post, class: 'btn btn-outline-danger' %>
         <% else %>
-          <%= link_to 'Unlike', user_like_path(user_username: @user.username, id: note), method: :delete, class: 'btn btn-outline-danger' %>
+          <%= link_to 'Unfollow Note', user_like_path(user_username: @user.username, id: note), method: :delete, class: 'btn btn-outline-danger' %>
         <% end %>
       <% end %>
     </div>

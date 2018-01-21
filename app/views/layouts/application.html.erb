@@ -11,7 +11,7 @@
   <body>
     <% if user_signed_in? %>
     <%= render partial: 'notes/navbar' %>
-    <% elsif action_name == 'index' || action_name == 'show'%>
+    <% elsif controller_name == 'users' %>
     <%= render partial: 'users/anonnavbar' %>
     <% end %>
     <%= yield %>
