@@ -32,11 +32,6 @@ class NotesController < ApplicationController
     redirect_to user_notes_path
   end
 
-  def home
-    @followedusers = Following.where(follower_id: current_user.id)
-
-  end
-
 private
   def note_params
     params.require(:note).permit(:title, :body)

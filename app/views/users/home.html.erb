@@ -4,6 +4,7 @@
 <h4>Following: <%= current_user.followees.count %></h4>
 <h4>Followed by: <%= current_user.followers.count %></h4>
 <h4>Number of notes: <%= current_user.notes.count %></h4>
+<h4>Bio: <%= best_in_place [current_user], :bio %></h4>
 </br>
 <h2>Who you are following:</h2>
 <div class="card-deck">

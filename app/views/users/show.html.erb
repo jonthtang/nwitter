@@ -15,6 +15,7 @@
 <h4>Following: <%= @user.followees.count %></h4>
 <h4>Followed by: <%= @user.followers.count %></h4>
 <h4>Number of notes: <%= @user.notes.count %></h4>
+<h4>Bio: <%= @user.bio %></h4>
 
 <br/>
 <h2>Current Notes</h2>
@@ -23,7 +24,7 @@
     <div class="card-contain">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title text-center"><%= note.title %></h4>
+        <h3 class="card-title text-center"><%= note.title %></h4>
         <div class="scroller">
         <p class="card-text">
           <%= note.body %>
@@ -32,11 +33,13 @@
       </div>
       <% if user_signed_in? %>
         <% if Like.find_by(user_id: current_user.id, note_id: note.id).nil? %>
-          <%= link_to 'Follow Note', user_likes_path(user_username: @user.username, id: note), method: :post, class: 'btn btn-outline-danger' %>
+          <%= link_to 'Like Note', user_likes_path(user_username: @user.username, id: note), method: :post, class: 'btn btn-outline-danger' %>
         <% else %>
-          <%= link_to 'Unfollow Note', user_like_path(user_username: @user.username, id: note), method: :delete, class: 'btn btn-outline-danger' %>
+          <%= link_to 'Unlike Note', user_like_path(user_username: @user.username, id: note), method: :delete, class: 'btn btn-outline-danger' %>
         <% end %>
       <% end %>
+      </br>
+      <p class = "text-center"><%= note.likes.count %> Likes</p>
     </div>
     </div>
   <% end %>
