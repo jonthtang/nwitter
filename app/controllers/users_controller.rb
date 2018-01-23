@@ -18,7 +18,11 @@ class UsersController < ApplicationController
 
   def home
     redirect_to landing_path unless user_signed_in?
-    @followedusers = current_user.followees
+    @followedusers = current_user.followees.paginate(:page => params[:page], :per_page => 3)
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def update

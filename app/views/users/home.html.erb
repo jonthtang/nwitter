@@ -29,18 +29,11 @@
 </div>
 </br>
 <h2>Latest updates from your follows:</h2>
-  <% @followedusers.each do |worship| %>
-  <div class="row home">
-    <div class = "col-2">
-      <div class ="borderbox avatar">
-        <%= image_tag("http://api.adorable.io/avatar/100/#{worship.username}") %>
-      </div>
-    </div>
-    <div class ="col-10">
-      <div class ="borderbox">
-        <h5 class ="card-title"><%= worship.notes.last.title %> by <%= worship.username %></h5>
-        <p class="card-text"><%= worship.notes.last.body %></p>
-      </div>
-    </div>
+  <div id="latest-notes">
+    <%= render "latest-notes" %>
   </div>
-<% end %>
+  <script>
+    $(function(){
+      $('.pagination a').attr('data-remote', 'true')
+    });
+  </script>
