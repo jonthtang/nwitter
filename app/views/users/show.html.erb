@@ -1,5 +1,11 @@
 <h1><%= @user.username %>'s Notebook</h1>
-<%= image_tag("http://api.adorable.io/avatar/300/#{@user.username}") %>
+<% if @user.picture? %>
+  <%= image_tag(@user.picture.url) %>
+<% else %>
+  <%= image_tag("http://api.adorable.io/avatar/300/#{@user.username}") %>
+<% end %>
+
+
 <% if user_signed_in? %>
 <% @check = Following.find_by(follower_id: current_user.id, followee_id: @user) %>
   <% if @check.nil? %>

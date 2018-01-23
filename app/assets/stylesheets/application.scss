@@ -75,7 +75,11 @@ h1 {
   margin-top: 2%;
   text-align: center;
   margin-bottom: 50px;
-  color: #FFFFFF;
+  color: white;
+}
+
+h2.login {
+  color: black;
 }
 
 h2 {
@@ -112,4 +116,30 @@ h2.login {
   width: 100px;
   text-align: left;
   margin: 2px 10px;
+}
+
+.row.home {
+  margin: 1% 10%;
+}
+
+.row.home {
+  margin: 1% 10%;
+}
+
+.borderbox {
+  background-color: white;
+  border: 2px solid grey;
+  padding: 10px 10px;
+  border-radius: 3%;
+  height: 125px;
+}
+
+.borderbox.avatar {
+  width: 125px;
+}
+
+.container.home {
+  width: 80%;
+  word-wrap: break-word;
+  text-align: left;
 }

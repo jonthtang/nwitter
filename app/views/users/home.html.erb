@@ -1,29 +1,46 @@
 <h1>Welcome back, <%= current_user.username %> </h1>
 
-<h2>Statistics</h2>
-<h4>Following: <%= current_user.followees.count %></h4>
-<h4>Followed by: <%= current_user.followers.count %></h4>
-<h4>Number of notes: <%= current_user.notes.count %></h4>
-<h4>Bio: <%= best_in_place [current_user], :bio %></h4>
+<div class = "row">
+  <div class="col-3 offset-1">
+    <% if current_user.picture? %>
+      <%= image_tag(current_user.picture.url) %>
+    <% else %>
+      <%= image_tag("http://api.adorable.io/avatar/300/#{current_user.username}") %>
+    <% end %>
+
+    <%= simple_form_for current_user, url: user_path(current_user), method: :put, html: {multipart: true} do |f| %>
+    <%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/png' %>
+    </br>
+    <%= f.submit 'Update Profile Information'%>
+    <% end %>
+  </div>
+  <div class="col-4">
+    <div class="container home">
+      <h4>Bio: </br>
+      <%= best_in_place [current_user], :bio, :type => :textarea, display_with: :simple_format, :html_attrs => { :cols => '20', :rows => '1' } %></h4>
+    </div>
+  </div>
+  <div class="col-4">
+    <h2>Statistics</h2>
+    <h4>Following: <%= current_user.followees.count %></h4>
+    <h4>Followed by: <%= current_user.followers.count %></h4>
+    <h4>Number of notes: <%= current_user.notes.count %></h4>
+  </div>
+</div>
 </br>
-<h2>Who you are following:</h2>
-<div class="card-deck">
-  <% @followedusers.each do |array| %>
-    <% user = User.find_by(id: array.followee_id) %>
-    <div class="card-contain">
-    <div class="card">
-      <%= image_tag("http://api.adorable.io/avatar/300/#{user.username}") %>
-      <div class="card-body">
-        <h4 class="card-title text-center"><%= link_to user.username, user_path(username: user.username) %></h4>
-        <div class="scroller">
-        <p class="card-text">
-          <% user.notes.each do |note| %>
-          <li class="list-group-item"><%= note.title %></li>
-          <% end %>
-          </p>
-        </div>
+<h2>Latest updates from your follows:</h2>
+  <% @followedusers.each do |worship| %>
+  <div class="row home">
+    <div class = "col-2">
+      <div class ="borderbox avatar">
+        <%= image_tag("http://api.adorable.io/avatar/100/#{worship.username}") %>
       </div>
     </div>
+    <div class ="col-10">
+      <div class ="borderbox">
+        <h5 class ="card-title"><%= worship.notes.last.title %> by <%= worship.username %></h5>
+        <p class="card-text"><%= worship.notes.last.body %></p>
+      </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>

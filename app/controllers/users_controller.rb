@@ -18,17 +18,24 @@ class UsersController < ApplicationController
 
   def home
     redirect_to landing_path unless user_signed_in?
-    @followedusers = Following.where(follower_id: current_user.id)
+    @followedusers = current_user.followees
   end
 
   def update
     redirect_to landing_path unless user_signed_in?
+    # if current_user.update(user_params)
+    #   flash[:success] = 'Your picture has been updated'
+    #   redirect_to home_path
+    # else
+    #   flash[:error] = 'Your picture has not been updated.'
+    #   redirect_to home_path
+    # end
     respond_to do |format|
       if current_user.update(user_params)
-        format.html { redirect_to(current_user, :notice => 'User was successfully updated.') }
+        format.html { redirect_to home_path, :notice => 'User was successfully updated.' }
         format.json { respond_with_bip(current_user) }
       else
-        format.html { render :controller => "user", :action => "home" }
+        format.html { redirect_to home_path, :notice => 'User was not successfully updated.' }
         format.json { respond_with_bip(current_user) }
       end
     end

@@ -25,5 +25,6 @@ class User < ApplicationRecord
   has_many :likes
   validates :username, presence: true, uniqueness:  { case_sensitive: false }
   validates :email, presence: true
+  mount_uploader :picture, PictureUploader
 
 end
