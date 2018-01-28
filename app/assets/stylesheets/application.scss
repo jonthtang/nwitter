@@ -84,6 +84,7 @@ h2.login {
 
 h2 {
   color: #FFFFFF;
+  text-align: center;
 }
 
 h4 {
@@ -142,4 +143,31 @@ h2.login {
   width: 80%;
   word-wrap: break-word;
   text-align: left;
+}
+
+.container.show {
+  background-color: white;
+  height: 140px;
+  padding: 30px 30px;
+  border: 2px solid grey;
+  border-radius: 3%;
+  display: block;
+}
+
+.container.show.title {
+  padding: 10px 10px;
+}
+
+.container.show.body {
+  padding: 10px 10px;
+  display: none;
+}
+
+.btn.like {
+  display: block;
+}
+
+p.like {
+  display: inline-block;
+  float: right;
 }

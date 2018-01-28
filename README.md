@@ -4,7 +4,7 @@
 ## Introduction
 A note taking and sharing app orginally written in 12 hours for the final assessment of my bootcamp!
 
-Update Jan 24th, 2018: 
+Update Jan 24th, 2018:
 - Pagination with AJAX
 - Upload Avatar or use the default Avatar API
 
@@ -41,7 +41,18 @@ git clone https://github.com/jonthtang/nwitter.git
 bundle install
 ```
 
-3. Create the database
+3. Install mailcatcher
+```
+gem install mailcatcher
+```
+
+4. Run mailcatcher
+```
+mailcatcher
+```
+Emails sent can be checked at http://127.0.0.1:1080 
+
+5. Create the database
 ```
 rake db:create db:migrate db:seed
 ```

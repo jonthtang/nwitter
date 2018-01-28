@@ -9,12 +9,11 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
-//= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
 //= require jquery3
 //= require popper
-//= require jquery
 //= require best_in_place
 //= require bootstrap-sprockets
 //= require_tree .
@@ -23,3 +22,27 @@ $(document).ready(function() {
   /* Activating Best In Place */
   jQuery(".best_in_place").best_in_place();
 });
+
+$(document).ready(function() {
+  $(".note-title").hover(function() {
+    $(this).next(".container .show .body").css("display", "block");
+  }, function() {
+    $(this).next(".container .show .body").css("display", "none");
+  }
+)});
+
+$(document).ready(function() {
+  $(".container.show").hover(function() {
+    $(this).next(".container.show.body").css("display", "inline-block");
+  }, function() {
+    $(this).next(".container.show.body").css("display", "none");
+  }
+)});
+
+$(document).ready(function() {
+  $(".container.show.title").hover(function() {
+    $(this).css("background-color", "skyblue");
+  }, function() {
+    $(this).css("background-color", "white");
+  }
+)});

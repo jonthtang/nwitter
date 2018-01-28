@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
 
   def index
     @notes = current_user.notes.all
@@ -30,6 +30,14 @@ class NotesController < ApplicationController
     @note = current_user.notes.find(params[:id])
     @note.destroy
     redirect_to user_notes_path
+  end
+
+  def show
+    @note = Note.find(params[:id])
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
 private
