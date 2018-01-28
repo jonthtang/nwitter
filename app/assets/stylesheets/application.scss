@@ -18,9 +18,13 @@
 }
 
  .card-contain {
-   width: 400px;
-   margin: 30px 30px;
+   width: 49%;
+   margin: 0.5% 0.5%;
  }
+
+.card-title {
+  color: black;
+}
 
  .card-deck {
    margin: 50px;
@@ -34,10 +38,11 @@
    margin-top: 30px;
    border-radius: 10%;
    padding: 30px;
+   height: 500px;
  }
 
  .scroller {
-     height: 150px;
+     height: 310px;
      overflow-y:scroll;
  }
 
@@ -170,4 +175,12 @@ h2.login {
 p.like {
   display: inline-block;
   float: right;
+}
+
+h1.new{
+  display: inline-block;
+}
+
+.btn.new{
+  display: inline-block;
 }

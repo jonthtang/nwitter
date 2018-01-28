@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, only:[:index, :show, :update], param: :username do
     resources :followings, only:[:create,:destroy]
-    resources :notes, except: [:new, :edit] do
+    resources :notes, except: [:new] do
       member do
         resources :likes, only:[:create, :destroy]
       end

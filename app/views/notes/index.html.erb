@@ -1,9 +1,38 @@
-<h1>Hi <%=current_user.username%>, write a new note! </h1>
-  <%= simple_form_for @note, url: user_notes_path(current_user), method: :post do |f| %>
-    <%= f.input :title, label: "Enter a title", as: :text %>
-    <%= f.input :body, label: "Share your thoughts", as: :text, error: "Cannot be empty!" %>
-    <%= f.button :submit, 'Create Note' %>
-  <% end %>
+<div class="col-4 offset-4 new">
+<h1 class="new">Hi <%=current_user.username%>, write a</h1>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary new" data-toggle="modal" data-target=".bd-example-modal-lg">
+  New Note
+</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create a New Note</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= simple_form_for @note, url: user_notes_path(current_user), method: :post do |f| %>
+      <div class="modal-body">
+        <div class="field">
+          <%= f.input :title, label: "Enter a title", as: :text, :input_html => { :cols => '60', :rows => '1' } %>
+        </div>
+        <div class="field">
+          <%= f.input :body, label: "Share your thoughts", as: :text, error: "Cannot be empty!", :input_html => { :cols => '60', :rows => '19' } %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.button :submit, 'Create Note', class: "btn button-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
 
   <h2>Current Notes</h2>
   <div class="card-deck">
@@ -11,10 +40,10 @@
       <div class="card-contain">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title text-center"><%= best_in_place [current_user, note], :title %></h4>
+          <h4 class="card-title text-center"><%= best_in_place [current_user, note], :title, :html_attrs => { :cols => '50', :rows => '1' } %></h4>
           <div class="scroller">
           <p class="card-text">
-            <%= best_in_place [current_user, note], :body %>
+            <%= best_in_place [current_user, note], :body, :type => :textarea, :html_attrs => { :cols => '50', :rows => '12' } %>
           </p>
           </div>
         </div>

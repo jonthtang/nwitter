@@ -13,7 +13,7 @@
             <div class="scroller">
             <p class="card-text">
               <% user.notes.each do |note| %>
-              <li class="list-group-item"><%= note.title %></li>
+              <li class="list-group-item"><%= link_to note.title, user_note_path(note,user) %></li>
               <% end %></p>
             </div>
           </div>
@@ -33,7 +33,7 @@
             <div class="scroller">
             <p class="card-text">
               <% user.notes.each do |note| %>
-              <li class="list-group-item"><%= note.title %></li>
+              <li class="list-group-item"><%= link_to note.title, user_note_path(note,user) %></li>
               <% end %></p>
             </div>
           </div>
