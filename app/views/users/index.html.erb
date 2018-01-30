@@ -5,12 +5,12 @@
 <% unless user_signed_in? %>
 <div class="card-deck">
   <% @users.each do |user| %>
-    <div class="card-contain">
-      <div class="card">
+    <div class="card-contain index">
+      <div class="card index">
         <%= image_tag("http://api.adorable.io/avatar/300/#{user.username}") %>
           <div class="card-body">
             <h4 class="card-title text-center"><%= link_to user.username, user_path(username: user.username) %></h4>
-            <div class="scroller">
+            <div class="scroller index">
             <p class="card-text">
               <% user.notes.each do |note| %>
               <li class="list-group-item"><%= link_to note.title, user_note_path(note,user) %></li>
@@ -25,12 +25,12 @@
 <div class="card-deck">
   <% @newusers.each do |user| %>
     <% unless user.id == current_user.id %>
-      <div class="card-contain">
-        <div class="card">
+      <div class="card-contain index">
+        <div class="card index">
           <%= image_tag("http://api.adorable.io/avatar/300/#{user.username}") %>
           <div class="card-body">
             <h4 class="card-title text-center"><%= link_to user.username, user_path(username: user.username) %></h4>
-            <div class="scroller">
+            <div class="scroller index">
             <p class="card-text">
               <% user.notes.each do |note| %>
               <li class="list-group-item"><%= link_to note.title, user_note_path(note,user) %></li>

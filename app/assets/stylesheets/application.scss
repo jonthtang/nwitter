@@ -22,6 +22,11 @@
    margin: 0.5% 0.5%;
  }
 
+ .card-contain.index {
+   width: 33%;
+   margin: 0.5% 0.5%;
+ }
+
 .card-title {
   color: black;
 }
@@ -41,9 +46,21 @@
    height: 500px;
  }
 
+ .card.index {
+   margin: 10%;
+   margin-top: 30px;
+   border-radius: 10%;
+   padding: 30px;
+   height: 600px;
+ }
+
  .scroller {
      height: 310px;
      overflow-y:scroll;
+ }
+
+ .scroller.index {
+     height: 150px;
  }
 
 .carousel-content {
